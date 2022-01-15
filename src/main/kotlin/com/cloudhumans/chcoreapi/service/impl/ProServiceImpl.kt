@@ -1,7 +1,7 @@
 package com.cloudhumans.chcoreapi.service.impl
 
+import com.cloudhumans.chcoreapi.domain.ProEvaluation
 import com.cloudhumans.chcoreapi.service.ProService
-import com.cloudhumans.chcoreapi.service.dto.ApplicationEvaluationDTO
 import com.cloudhumans.chcoreapi.service.dto.ProApplicationDTO
 import com.cloudhumans.chcoreapi.service.dto.validateProApplication
 import org.springframework.stereotype.Service
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service
 @Service
 class ProServiceImpl : ProService {
 
-    override fun evaluateApplication(application: ProApplicationDTO): ApplicationEvaluationDTO {
+    override fun evaluateApplication(application: ProApplicationDTO): ProEvaluation {
         application.validateProApplication()
-        return ApplicationEvaluationDTO("passou")
+        return ProEvaluation(application)
     }
 }

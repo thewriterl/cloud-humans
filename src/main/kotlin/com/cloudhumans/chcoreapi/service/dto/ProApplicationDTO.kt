@@ -22,10 +22,10 @@ data class ProApplicationDTO(
     @JsonProperty("referral_code") val referralCode: String
 )
 
-enum class ProEducationLevel() {
-    NO_EDUCATION,
-    HIGH_SCHOOL,
-    BACHELORS_OR_HIGH
+enum class ProEducationLevel(val bonus: Int, val onus: Int) {
+    NO_EDUCATION(bonus = 0, onus = 0),
+    HIGH_SCHOOL(bonus = 1, onus = 0),
+    BACHELORS_OR_HIGH(bonus = 2, onus = 0)
 }
 
 fun ProApplicationDTO.validateProApplication() {

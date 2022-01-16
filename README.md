@@ -29,3 +29,14 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+
+## Running Tests
+
+The application has Unit and Integration tests. To run the tests, simply use:
+
+```shell
+mvn test
+```
+
+Alternatively you can run `com.cloudhumans.chcoreapi.integration.ApplicationCalculatorIntegrationTests` and
+`com.cloudhumans.chcoreapi.unit.ApplicationCalculatorUnitTests` on your IDE

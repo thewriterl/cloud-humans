@@ -5,15 +5,16 @@ import com.cloudhumans.chcoreapi.utils.ApplicationCalculator
 import java.util.UUID
 
 class ProEvaluation(application: ProApplicationDTO) {
-    var id: UUID? = null
+    var id: UUID = UUID.randomUUID()
     var score: Int = 0
     var selectedProject: Project? = null
     var elegibleProjects: MutableList<Project>? = null
     var inelegibleProjects: MutableList<Project>? = null
 
     init {
-        this.id = UUID.randomUUID()
         this.score = 0
+
+        this.score += application.educationLevel.bonus
 
         this.score += ApplicationCalculator.INTERNET_SCORE.apply(
             application.internetTest.downloadSpeed,

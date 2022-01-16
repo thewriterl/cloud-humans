@@ -1,6 +1,7 @@
 package com.cloudhumans.chcoreapi.unit
 
 import com.cloudhumans.chcoreapi.utils.ApplicationCalculator
+import com.cloudhumans.chcoreapi.utils.DataGenerator
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
@@ -59,20 +60,14 @@ class ApplicationCalculatorUnitTests {
     @Test
     @DisplayName("Asserts grade a random internet connection correctly")
     fun `Asserts that calculator grades random connection`() {
-        val download = 1f + Math.random() * (51f - 1f)
-        val upload = 1f + Math.random() * (51f - 1f)
-        var result = 0
 
-        if (download > 50) result += 1
-        if (upload > 50) result += 1
-        if (download < 5) result += -1
-        if (upload < 5) result += -1
+        val testData = DataGenerator().generateInternetTestData()
 
         assert(
             ApplicationCalculator.INTERNET_SCORE.apply(
-                download = download.toFloat(),
-                upload = upload.toFloat()
-            ) == result
+                download = testData.download,
+                upload = testData.upload
+            ) == testData.result
         )
     }
 

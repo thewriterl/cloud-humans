@@ -41,8 +41,10 @@ enum class ApplicationCalculator {
     INTERNET_SCORE {
         override fun apply(download: Float, upload: Float): Int {
             var result = 0
-            if (download > 50 || upload > 50) result += 1
-            if (download < 5 || upload < 5) result += -1
+            if (download > 50f) result += 1
+            if (upload > 50f) result += 1
+            if (download < 5f) result += -1
+            if (upload < 5f) result += -1
             return result
         }
 
@@ -94,9 +96,9 @@ enum class ApplicationCalculator {
 
         override fun apply(writingScore: Float): Int {
             var result = 0
-            if (writingScore < 0.3) result += -1
-            if (writingScore in 0.3..0.7) result += 1
-            if (writingScore > 0.4) result += 2
+            if (writingScore < 0.3f) result += -1
+            if (writingScore in 0.3f..0.7f) result += 1
+            if (writingScore > 0.7f) result += 2
             return result
         }
 
@@ -138,7 +140,7 @@ enum class ApplicationCalculator {
         }
 
         override fun apply(token: String): Int {
-            return if (token.equals("token1234")) 1 else 0
+            return if (token == "token1234") 1 else 0
         }
     };
 

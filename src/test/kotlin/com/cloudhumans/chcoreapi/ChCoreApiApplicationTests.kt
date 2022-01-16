@@ -9,5 +9,4 @@ class ChCoreApiApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
